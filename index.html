@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Elevate Training Co.</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Helvetica Neue', sans-serif;
+    }
+    body {
+      background-color: #ffffff;
+      color: #1a1a1a;
+      line-height: 1.6;
+      scroll-behavior: smooth;
+    }
+    header {
+      position: relative;
+      background-image: url('https://images.unsplash.com/photo-1554284126-aa88f22d8b74');
+      background-size: cover;
+      background-position: center;
+      color: white;
+      padding: 6rem 2rem;
+      text-align: center;
+    }
+    header::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      z-index: 1;
+    }
+    header h1, header p {
+      position: relative;
+      z-index: 2;
+    }
+    header h1 {
+      font-size: 3rem;
+      font-weight: bold;
+    }
+    header p {
+      font-size: 1.4rem;
+      margin-top: 1rem;
+    }
+    section {
+      padding: 4rem 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+    .hero img, .gallery img {
+      width: 100%;
+      border-radius: 12px;
+      margin-top: 2rem;
+    }
+    .hero {
+      text-align: center;
+    }
+    .services .service-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    .services .service-box {
+      flex: 1 1 calc(50% - 1rem);
+      background: #f0f0f0;
+      padding: 1.5rem;
+      border-radius: 10px;
+    }
+    .about, .testimonials, .pricing, .gallery {
+      background: #fafafa;
+      border-radius: 10px;
+      padding: 2rem;
+      margin-top: 2rem;
+    }
+    .testimonials blockquote {
+      background: #fff;
+      padding: 1.5rem;
+      margin-top: 1rem;
+      border-left: 5px solid #0077ff;
+      border-radius: 5px;
+      font-style: italic;
+    }
+    .gallery {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      justify-content: space-around;
+    }
+    .gallery img {
+      flex: 1 1 calc(30% - 1rem);
+      height: 200px;
+      object-fit: cover;
+    }
+    .pricing table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 1rem;
+    }
+    .pricing th, .pricing td {
+      border: 1px solid #ddd;
+      padding: 1rem;
+      text-align: left;
+    }
+    .pricing th {
+      background-color: #f4f4f4;
+    }
+    .schedule a {
+      display: inline-block;
+      margin-top: 1rem;
+      padding: 1rem 2rem;
+      background: #0077ff;
+      color: white;
+      text-decoration: none;
+      border-radius: 6px;
+      transition: background-color 0.3s ease;
+    }
+    .schedule a:hover {
+      background-color: #005ec2;
+    }
+    .contact form {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+    /* Fitness Game Section */
+.game-section {
+  background-color: #f8f9fb;
+  border-radius: 12px;
+  padding: 3rem 2rem;
+  margin: 4rem auto;
+  text-align: center;
+  max-width: 1000px;
+}
+
+.game-section h2 {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+.game-canvas {
+  width: 200px;
+  height: 300px;
+  margin: 2rem auto;
+  background: #ddd;
+  border-radius: 10px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.game-canvas img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.game-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+  margin: 2rem 0;
+}
+
+.game-buttons button {
+  padding: 1rem 2rem;
+  font-size: 1rem;
+  background-color: #0077ff;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.game-buttons button:hover {
+  background-color: #005ec2;
+}
+
+#gameResult button {
+  margin-top: 2rem;
+  background-color: black;
+  color: white;
+  padding: 1rem 2rem;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+}
+
+.game-canvas-wrapper {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 0.5rem;
+  position: relative;
+}
+
+.character-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.character-wrapper img {
+  width: 200px;
+  height: 300px;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+.thumb-icon {
+  position: absolute;
+  top: 10px;
+  left: 100%;
+  margin-left: 5px;
+  font-size: 2rem;
+  display: none;
+  transition: opacity 0.3s ease;
+}
+
+.thumb-icon.show {
+  display: block;
+}
+
+.thumb-icon.green {
+  color: #28a745;
+}
+
+.thumb-icon.red {
+  color: #dc3545;
+}
+
+
+    input, textarea {
+      padding: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 1rem;
+    }
+    button {
+      padding: 1rem;
+      background-color: #000;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    button:hover {
+      background-color: #333;
+    }
+    footer {
+      background-color: #000;
+      color: white;
+      text-align: center;
+      padding: 2rem 1rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Elevate Training Co.</h1>
+    <p>High-performance personal training tailored to you.</p>
+  </header>
+  <section class="hero">
+    <h2>Your Transformation Begins Here</h2>
+    <p>We combine cutting-edge training, data-driven nutrition, and habit coaching to elevate your body and mind.</p>
+    <img src="https://images.unsplash.com/photo-1605296867304-46d5465a13f1" alt="Fitness Lifestyle" />
+  </section>
+  <section class="services">
+    <h2>Our Services</h2>
+    <div class="service-grid">
+      <div class="service-box"><strong>1-on-1 Coaching:</strong> Personalized and progressive.</div>
+      <div class="service-box"><strong>Virtual Programs:</strong> Convenient and effective.</div>
+      <div class="service-box"><strong>Nutrition Strategy:</strong> Support with real-world results.</div>
+      <div class="service-box"><strong>Fitness Testing:</strong> Data to drive your performance.</div>
+    </div>
+  </section>
+  <section class="about">
+    <h2>Why Elevate?</h2>
+    <p>We’re more than just trainers — we’re transformation partners. Elevate clients benefit from professional programming, expert accountability, and a system that adapts to real life.</p>
+    <img src="https://images.unsplash.com/photo-1518611012118-f0c5d7d7231b" alt="Training Session" />
+  </section>
+  <section class="testimonials">
+    <h2>Real Client Success</h2>
+    <blockquote>“Elevate gave me back my confidence and strength. I’ve never felt more empowered.” — Sarah L.</blockquote>
+    <blockquote>“The structure, care, and science behind it all is unmatched.” — Mike H.</blockquote>
+  </section>
+  <section class="gallery">
+    <img src="https://images.unsplash.com/photo-1588776814546-7af2d23f7e1a" alt="Gallery 1" />
+    <img src="https://images.unsplash.com/photo-1599058917212-d750089bc06e" alt="Gallery 2" />
+    <img src="https://images.unsplash.com/photo-1594737625785-cf3db6c6a2e1" alt="Gallery 3" />
+  </section>
+  <section class="pricing">
+    <h2>Pricing</h2>
+    <table>
+      <thead><tr><th>Service</th><th>Price</th></tr></thead>
+      <tbody>
+        <tr><td>Intro Assessment</td><td>$50</td></tr>
+        <tr><td>1-on-1 Personal Training (60 min)</td><td>$100</td></tr>
+        <tr><td>Monthly Online Coaching</td><td>$300</td></tr>
+        <tr><td>Full Nutrition Overhaul</td><td>$75</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+<!-- Fitness Game Section -->
+<section class="game-section">
+  <h2>Build Your Fitness Knowledge</h2>
+<div class="game-canvas" id="characterCanvas">
+  <div class="character-wrapper">
+    <img id="characterImg" src="./img/normalface.png" />
+    <div id="thumbIcon" class="thumb-icon"></div>
+  </div>
+</div>
+
+  <div id="gameQuestion">Click start to begin!</div>
+  <div class="game-buttons">
+    <button onclick="selectAnswer(0)" id="gameBtn0"></button>
+    <button onclick="selectAnswer(1)" id="gameBtn1"></button>
+  </div>
+  <button onclick="startGame()">Start Game</button>
+  <div id="gameResult"></div>
+</section>
+
+
+
+
+  <section class="schedule">
+    <h2>Book Your Session</h2>
+    <p>Find a time that works for you and start your journey today.</p>
+    <a href="https://calendly.com/" target="_blank">Schedule Now</a>
+  </section>
+  <section class="contact">
+    <h2>Contact Us</h2>
+    <form onsubmit="submitForm(event)">
+      <input type="text" name="name" placeholder="Your Name" required />
+      <input type="email" name="email" placeholder="Your Email" required />
+      <textarea name="message" rows="5" placeholder="Tell us about your goals" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+  </section>
+  <footer>
+    &copy; 2025 Elevate Training Co. | High-End Coaching for Every Body
+  </footer>
+ 
+ 
+ 
+ <script>
+
+const allGameQuestions = [
+    { q: "What is the best macronutrient for muscle growth?", a: "Protein", b: "Sugar", correct: 0 },
+    { q: "How many days a week should you train for strength?", a: "3-5", b: "1", correct: 0 },
+    { q: "What burns more calories?", a: "Weightlifting", b: "Watching TV", correct: 0 },
+    { q: "What’s a sign of overtraining?", a: "Improved performance", b: "Fatigue & injury", correct: 1 },
+    { q: "Which supports recovery best?", a: "Sleep", b: "More lifting", correct: 0 },
+    { q: "What helps prevent injury?", a: "Stretching", b: "Skipping warm-up", correct: 0 },
+    { q: "Which macronutrient is the body's main energy source?", a: "Carbohydrates", b: "Protein", correct: 0 },
+    { q: "What should you do post-workout?", a: "Eat protein", b: "Go to sleep without eating", correct: 0 }
+  ];
+
+  let gameQuestions = [];
+  let currentQuestionIndex = 0;
+  let correctAnswers = 0;
+
+  const questionText = document.getElementById("gameQuestion");
+  const button0 = document.getElementById("gameBtn0");
+  const button1 = document.getElementById("gameBtn1");
+  const resultDiv = document.getElementById("gameResult");
+  const characterImg = document.getElementById("characterImg");
+
+  // Disable answer buttons until the game starts
+  button0.disabled = true;
+  button1.disabled = true;
+
+  function startGame() {
+    gameQuestions = shuffle([...allGameQuestions]).slice(0, 5);
+    currentQuestionIndex = 0;
+    correctAnswers = 0;
+    resultDiv.innerHTML = "";
+    characterImg.src = "./img/normalface.png";
+
+    // Enable buttons
+    button0.disabled = false;
+    button1.disabled = false;
+
+    nextGameQuestion();
+  }
+
+  function shuffle(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [array[i], array[j]] = [array[j], array[i]];
+    }
+    return array;
+  }
+
+  function nextGameQuestion() {
+    if (currentQuestionIndex >= gameQuestions.length) {
+      return endGame();
+    }
+
+    const q = gameQuestions[currentQuestionIndex];
+    questionText.textContent = q.q;
+
+    button0.textContent = q.a;
+    button1.textContent = q.b;
+
+    button0.dataset.correct = q.correct == 0;
+    button1.dataset.correct = q.correct == 1;
+  }
+
+function selectAnswer(index) {
+  const selectedButton = index === 0 ? button0 : button1;
+  const isCorrect = selectedButton.dataset.correct === "true";
+  const thumbIcon = document.getElementById("thumbIcon");
+
+  if (isCorrect) {
+    correctAnswers++;
+    characterImg.src = correctAnswers >= 4 ? "./img/happyface.png" : "./img/normalface.png";
+    thumbIcon.innerHTML = "👍";
+    thumbIcon.className = "thumb-icon show green";
+  } else {
+    characterImg.src = "./img/sadface.png";
+    thumbIcon.innerHTML = "👎";
+    thumbIcon.className = "thumb-icon show red";
+  }
+
+  setTimeout(() => {
+    thumbIcon.classList.remove("show", "green", "red");
+  }, 1000);
+
+  currentQuestionIndex++;
+  nextGameQuestion();
+}
+
+
+
+  function endGame() {
+    button0.disabled = true;
+    button1.disabled = true;
+
+    let msg = "";
+    if (correctAnswers < 2) {
+      msg = '<a href="#contact"><button>You need our help</button></a>';
+    } else if (correctAnswers < 5) {
+      msg = '<a href="#contact"><button>Let us help get you to 5/5</button></a>';
+    } else {
+      msg = '<a href="#contact"><button>Great Job! Train with us</button></a>';
+    }
+
+    resultDiv.innerHTML = msg;
+    questionText.textContent = `You scored ${correctAnswers} out of 5!`;
+  }
+
+  // Optional: set initial placeholder text
+  questionText.textContent = "Click Start Game to test your fitness knowledge!";
+  button0.textContent = "Answer A";
+  button1.textContent = "Answer B";
+
+
+    function submitForm(e) {
+      e.preventDefault();
+      alert("Thank you! We'll be in touch shortly.");
+      e.target.reset();
+    }
+  </script>
+</body>
+</html>
