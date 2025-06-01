@@ -175,6 +175,25 @@
   margin: 2rem 0;
 }
 
+/* Result buttons (pop-up after the quiz) */
+.result-btn {
+  background-color: #28a745;
+  color: #fff;
+  padding: 1.2rem 2.4rem;
+  border: none;
+  border-radius: 9999px;       /* fully rounded – pill / circle look */
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  box-shadow: 0 0 10px rgba(40, 167, 69, 0.5);
+  transition: transform 0.15s ease;
+}
+
+.result-btn:hover {
+  transform: scale(1.05);     /* subtle pop on hover */
+}
+
+
 .game-buttons button {
   padding: 1rem 2rem;
   font-size: 1rem;
@@ -342,7 +361,7 @@
     <p>Find a time that works for you and start your journey today.</p>
     <a href="https://calendly.com/" target="_blank">Schedule Now</a>
   </section>
-  <section class="contact">
+<section id="contact" class="contact">
     <h2>Contact Us</h2>
     <form onsubmit="submitForm(event)">
       <input type="text" name="name" placeholder="Your Name" required />
@@ -486,13 +505,14 @@ function selectAnswer(index) {
     button1.disabled = true;
 
     let msg = "";
-    if (correctAnswers < 2) {
-      msg = '<a href="#contact"><button>You need our help</button></a>';
-    } else if (correctAnswers < 5) {
-      msg = '<a href="#contact"><button>Let us help get you to 5/5</button></a>';
-    } else {
-      msg = '<a href="#contact"><button>Great Job! Train with us</button></a>';
-    }
+if (correctAnswers < 2) {
+  msg = '<a href="#contact"><button class="result-btn">You need our help</button></a>';
+} else if (correctAnswers < 5) {
+  msg = '<a href="#contact"><button class="result-btn">Let us help get you to 5/5</button></a>';
+} else {
+  msg = '<a href="#contact"><button class="result-btn">Great Job! Train with us</button></a>';
+}
+
 
     resultDiv.innerHTML = msg;
     questionText.textContent = `You scored ${correctAnswers} out of 5!`;
