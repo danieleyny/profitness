@@ -1,0 +1,277 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Services | CK Strength Training</title>
+  <style>
+    body {
+      font-family: 'Helvetica Neue', sans-serif;
+      background-color: #ffffff;
+      color: #1a1a1a;
+      margin: 0;
+      padding: 0;
+      scroll-behavior: smooth;
+    }
+    header {
+      background-image: url('https://images.unsplash.com/photo-1554284126-aa88f22d8b74');
+      background-size: cover;
+      background-position: center;
+      color: white;
+      text-align: center;
+      padding: 6rem 2rem;
+      position: relative;
+    }
+    header::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      z-index: 1;
+    }
+    header h1, header p {
+      position: relative;
+      z-index: 2;
+    }
+    header h1 {
+      font-size: 3rem;
+      font-weight: bold;
+    }
+    header p {
+      font-size: 1.3rem;
+      margin-top: 1rem;
+    }
+    section {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 4rem 2rem;
+    }
+    .service {
+      background-color: #fafafa;
+      border-radius: 10px;
+      padding: 2rem;
+      margin-bottom: 2rem;
+    }
+    .service h2 {
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+    }
+    .service ul {
+      padding-left: 1.2rem;
+      line-height: 1.8;
+    }
+    .price {
+      font-weight: bold;
+      font-size: 1.2rem;
+      margin-top: 1rem;
+    }
+    footer {
+      background-color: #000;
+      color: white;
+      text-align: center;
+      padding: 2rem 1rem;
+    }
+  
+@media (max-width: 768px) {
+  header h1 {
+    font-size: 2rem;
+  }
+  header p {
+    font-size: 1rem;
+  }
+  .service {
+    padding: 1.5rem;
+  }
+}
+
+.book-btn {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0.75rem 1.5rem;
+  background: #0077ff;
+  color: white;
+  text-decoration: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+}
+.book-btn:hover {
+  background-color: #005ec2;
+}
+
+
+.navbar {
+  background-color: #111;
+  color: white;
+  padding: 1rem 2rem;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 2000;
+}
+.nav-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.nav-logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 1.5rem;
+}
+.nav-links li a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+}
+.nav-toggle {
+  display: none;
+  font-size: 2rem;
+  cursor: pointer;
+}
+.mobile-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.95);
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 3000;
+}
+.mobile-overlay.active {
+  display: flex;
+}
+.mobile-overlay .close-btn {
+  position: absolute;
+  top: 1rem;
+  right: 2rem;
+  font-size: 2.5rem;
+  color: white;
+  cursor: pointer;
+}
+.mobile-menu {
+  list-style: none;
+  text-align: center;
+}
+.mobile-menu li {
+  margin: 1rem 0;
+}
+.mobile-menu li a {
+  color: white;
+  font-size: 2rem;
+  text-decoration: none;
+}
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+  }
+  .nav-toggle {
+    display: block;
+  }
+}
+
+</style>
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="nav-container">
+    <div class="nav-logo">CK Training</div>
+    <div class="nav-toggle" id="navToggle">&#9776;</div>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="#">Content</a></li>
+      <li><a href="#">FAQs</a></li>
+      <li><a href="#">Strength Coaching</a></li>
+      <li><a href="massage.html">Massage Therapy</a></li>
+    </ul>
+  </div>
+  <div class="mobile-overlay" id="mobileOverlay">
+    <div class="close-btn" id="closeBtn">&times;</div>
+    <ul class="mobile-menu">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="#">Content</a></li>
+      <li><a href="#">FAQs</a></li>
+      <li><a href="#">Strength Coaching</a></li>
+      <li><a href="massage.html">Massage Therapy</a></li>
+    </ul>
+  </div>
+</nav>
+
+
+<header>
+  <h1>Our Coaching Services</h1>
+  <p>Flexible programs tailored to your experience level and goals</p>
+</header>
+
+<section>
+  <div class="service">
+    <h2>Beginner On-Boarding</h2>
+    <p>Two-hour in-person session to cover:</p>
+    <ul>
+      <li>Introduction to the equipment and safety procedures</li>
+      <li>Introduction to all necessary barbell movements</li>
+      <li>Establish baseline level of strength</li>
+      <li>Introduce training log</li>
+    </ul>
+    <p class="price">£200</p>
+    <a href="https://calendly.com/" class="book-btn" target="_blank">Book Now</a>
+  </div>
+
+  <div class="service">
+    <h2>Online Coaching</h2>
+    <p>Get tailored programming and form checks for every single programmed session.</p>
+    <p>No contracts. Cancel anytime.</p>
+    <p class="price">£200/month</p>
+    <a href="https://calendly.com/" class="book-btn" target="_blank">Book Now</a>
+  </div>
+
+  <div class="service">
+    <h2>Online + In-Person Coaching</h2>
+    <p>Get tailored programming and form checks for every single programmed session.</p>
+    <p>Includes one in-person session per month for a programmed session.</p>
+    <p>No contracts. Cancel anytime.</p>
+    <p class="price">£300/month</p>
+    <a href="https://calendly.com/" class="book-btn" target="_blank">Book Now</a>
+  </div>
+
+  <div class="service">
+    <h2>Online + In-Person Coaching+</h2>
+    <p>Get tailored programming and form checks for every single programmed session.</p>
+    <p>Includes three in-person sessions per month for programmed sessions.</p>
+    <p>No contracts. Cancel anytime.</p>
+    <p class="price">£500/month</p>
+    <a href="https://calendly.com/" class="book-btn" target="_blank">Book Now</a>
+  </div>
+</section>
+
+<footer>
+  &copy; 2025 CK Strength Training. | High-End Coaching for Every Body
+</footer>
+
+
+<script>
+  document.getElementById('navToggle').addEventListener('click', () => {
+    document.getElementById('mobileOverlay').classList.add('active');
+  });
+  document.getElementById('closeBtn').addEventListener('click', () => {
+    document.getElementById('mobileOverlay').classList.remove('active');
+  });
+</script>
+
+</body>
+</html>

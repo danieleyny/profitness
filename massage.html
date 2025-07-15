@@ -1,0 +1,187 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Massage Therapy | CK Training</title>
+  <style>
+    body {
+      font-family: 'Helvetica Neue', sans-serif;
+      background-color: #ffffff;
+      color: #1a1a1a;
+      margin: 0;
+      padding: 0;
+      scroll-behavior: smooth;
+    }
+    nav {
+      background-color: #111;
+      color: white;
+      padding: 1rem 2rem;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 2000;
+    }
+    .nav-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .nav-logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+    .nav-links {
+      display: flex;
+      list-style: none;
+      gap: 1.5rem;
+    }
+    .nav-links li a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    header {
+      position: relative;
+      background-image: url('https://images.unsplash.com/photo-1588776814546-d372b6f8cf99');
+      background-size: cover;
+      background-position: center;
+      color: white;
+      padding: 6rem 2rem;
+      text-align: center;
+    }
+    header::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      z-index: 1;
+    }
+    header h1, header p {
+      position: relative;
+      z-index: 2;
+    }
+    header h1 {
+      font-size: 3rem;
+      font-weight: bold;
+    }
+    header p {
+      font-size: 1.4rem;
+      margin-top: 1rem;
+    }
+
+    .content {
+      padding: 4rem 2rem;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .pricing {
+      background: #fafafa;
+      border-radius: 10px;
+      padding: 2rem;
+      margin-top: 2rem;
+    }
+
+    .pricing table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 1rem;
+    }
+
+    .pricing th, .pricing td {
+      border: 1px solid #ddd;
+      padding: 1rem;
+      text-align: left;
+    }
+
+    .pricing th {
+      background-color: #f4f4f4;
+    }
+
+    footer {
+      background-color: #000;
+      color: white;
+      text-align: center;
+      padding: 2rem 1rem;
+      margin-top: 4rem;
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="nav-container">
+      <div class="nav-logo">CK Training</div>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="./services.html">Services</a></li>
+        <li><a href="#">Content</a></li>
+        <li><a href="#">FAQs</a></li>
+        <li><a href="#">Strength Coaching</a></li>
+        <li><a href="#">Massage Therapy</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <header>
+    <h1>Massage Therapy</h1>
+    <p>Relax, recover, and renew through expert therapeutic massage.</p>
+  </header>
+
+  <section class="content">
+    <p>Our massage therapy sessions are designed to support recovery, enhance performance, and promote relaxation. Whether you're managing stress, recovering from a tough workout, or addressing chronic tension, we offer a range of massage types tailored to your needs.</p>
+
+    
+<div class="pricing">
+  <h2>Swedish Massage</h2>
+  <p>Gentle, relaxing, and ideal for stress relief and circulation improvement.</p>
+  <table>
+    <thead><tr><th>Duration</th><th>Price</th></tr></thead>
+    <tbody>
+      <tr><td>60 minutes</td><td>£50</td></tr>
+      <tr><td>90 minutes</td><td>£65</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="pricing">
+  <h2>Deep Tissue Massage</h2>
+  <p>Targets chronic muscle tension and knots, ideal for deeper therapeutic work.</p>
+  <table>
+    <thead><tr><th>Duration</th><th>Price</th></tr></thead>
+    <tbody>
+      <tr><td>60 minutes</td><td>£55</td></tr>
+      <tr><td>90 minutes</td><td>£70</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="pricing">
+  <h2>Sports Massage</h2>
+  <p>Designed for athletes and active individuals to improve mobility and recovery.</p>
+  <table>
+    <thead><tr><th>Duration</th><th>Price</th></tr></thead>
+    <tbody>
+      <tr><td>60 minutes</td><td>£55</td></tr>
+      <tr><td>90 minutes</td><td>£70</td></tr>
+    </tbody>
+  </table>
+</div>
+
+  </section>
+
+
+
+
+  <footer>
+    &copy; 2025 CK Strength Training | Professional Massage Therapy & Recovery
+  </footer>
+</body>
+</html>

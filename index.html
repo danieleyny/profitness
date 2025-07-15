@@ -286,18 +286,158 @@
       text-align: center;
       padding: 2rem 1rem;
     }
-  </style>
+  
+/* Top Navbar */
+.navbar {
+  background-color: #111;
+  color: white;
+  padding: 1rem 2rem;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 2000;
+}
+
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.nav-logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 1.5rem;
+}
+
+.nav-links li a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.nav-toggle {
+  display: none;
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+/* Mobile Fullscreen Menu */
+.mobile-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.95);
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 3000;
+}
+
+.mobile-overlay.active {
+  display: flex;
+}
+
+.mobile-overlay .close-btn {
+  position: absolute;
+  top: 1rem;
+  right: 2rem;
+  font-size: 2.5rem;
+  color: white;
+  cursor: pointer;
+}
+
+.mobile-menu {
+  list-style: none;
+  text-align: center;
+}
+
+.mobile-menu li {
+  margin: 1rem 0;
+}
+
+.mobile-menu li a {
+  color: white;
+  font-size: 2rem;
+  text-decoration: none;
+}
+
+/* Responsive Toggle */
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+  }
+  .nav-toggle {
+    display: block;
+  }
+}
+
+</style>
 </head>
 <body>
+
+<nav class="navbar">
+  <div class="nav-container">
+    <div class="nav-logo">CK Training</div>
+    <div class="nav-toggle" id="navToggle">&#9776;</div>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#home">Home</a></li>
+      <li><a href="/services.html">Services</a></li>
+      <li><a href="#content">Content</a></li>
+      <li><a href="#faqs">FAQs</a></li>
+      <li><a href="#strength">Strength Coaching</a></li>
+      <li><a href="/massage.html">Massage Therapy</a></li>
+    </ul>
+  </div>
+
+  <div class="mobile-overlay" id="mobileOverlay">
+    <div class="close-btn" id="closeBtn">&times;</div>
+    <ul class="mobile-menu">
+      <li><a href="#home">Home</a></li>
+      <li><a href="/services.html">Services</a></li>
+      <li><a href="#content">Content</a></li>
+      <li><a href="#faqs">FAQs</a></li>
+      <li><a href="#strength">Strength Coaching</a></li>
+      <li><a href="/massage.html">Massage Therapy</a></li>
+    </ul>
+  </div>
+</nav>
+
   <header>
     <h1>CK Strength Training.</h1>
     <p>High-performance personal training tailored to you.</p>
   </header>
+
+  <section class="initial-consultation" style="background-color:#fafafa; padding: 4rem 2rem; border-bottom: 1px solid #e0e0e0; text-align: left; max-width: 1000px; margin: 0 auto; border-radius: 10px;">
+    <h2 style="font-size: 2rem; margin-bottom: 1rem; color: #1a1a1a;">Initial Consultation</h2>
+    <p style="font-size: 1rem; color: #444; margin-bottom: 1.5rem; max-width: 700px;">Kick off with a free, one-hour session to lay the groundwork for your training journey. We’ll discuss your experience, assess your current status, and outline your goals.</p>
+    <ul style="padding-left: 1.2rem; line-height: 1.8; color: #333;">
+      <li>Assessment of current strength level</li>
+      <li>Training history</li>
+      <li>Injury history</li>
+      <li>Goals</li>
+    </ul>
+    <a href="#contact" style="margin-top: 2rem; display: inline-block; padding: 0.75rem 1.5rem; background-color: #0077ff; color: white; text-decoration: none; border-radius: 6px; font-size: 1rem; font-weight: 500; transition: background-color 0.3s ease;">Start Now</a>
+  </section>
+
   <section class="hero">
     <h2>Your Transformation Begins Here</h2>
     <p>We combine cutting-edge training, data-driven nutrition, and habit coaching to elevate your body and mind.</p>
     <img src="https://images.unsplash.com/photo-1605296867304-46d5465a13f1" alt="Fitness Lifestyle" />
   </section>
+
+
+
   <section class="services">
     <h2>Our Services</h2>
     <div class="service-grid">
@@ -529,6 +669,16 @@ if (correctAnswers < 2) {
       alert("Thank you! We'll be in touch shortly.");
       e.target.reset();
     }
-  </script>
+  
+// Navbar mobile toggle
+document.getElementById('navToggle').addEventListener('click', () => {
+  document.getElementById('mobileOverlay').classList.add('active');
+});
+
+document.getElementById('closeBtn').addEventListener('click', () => {
+  document.getElementById('mobileOverlay').classList.remove('active');
+});
+
+</script>
 </body>
 </html>
